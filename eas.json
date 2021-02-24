@@ -1,6 +1,10 @@
 {
   "builds": {
     "ios": {
+      "preview": {
+        "distribution": "internal",
+        "workflow": "generic"
+      },
       "release": {
         "workflow": "managed"
       }
