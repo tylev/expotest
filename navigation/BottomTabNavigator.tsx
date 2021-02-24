@@ -1,13 +1,14 @@
-import { Ionicons } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
+import * as React from "react";
 
-import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "../types";
+
+import Colors from "../constants/Colors";
+import { Ionicons } from "@expo/vector-icons";
+import TabOneScreen from "../screens/TabOneScreen";
+import TabTwoScreen from "../screens/TabTwoScreen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import useColorScheme from "../hooks/useColorScheme";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -16,20 +17,24 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName='News'
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="TabOne"
+        name='News'
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name='newspaper-outline' color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name='Price'
         component={TabTwoNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name='bar-chart-outline' color={color} />
+          ),
         }}
       />
     </BottomTab.Navigator>
@@ -38,7 +43,10 @@ export default function BottomTabNavigator() {
 
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
-function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']; color: string }) {
+function TabBarIcon(props: {
+  name: React.ComponentProps<typeof Ionicons>["name"];
+  color: string;
+}) {
   return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
 }
 
@@ -50,9 +58,9 @@ function TabOneNavigator() {
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
-        name="TabOneScreen"
+        name='TabOneScreen'
         component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+        options={{ headerTitle: "Bitcoin Magazine News" }}
       />
     </TabOneStack.Navigator>
   );
@@ -64,9 +72,9 @@ function TabTwoNavigator() {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
-        name="TabTwoScreen"
+        name='TabTwoScreen'
         component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        options={{ headerTitle: "BTC Price" }}
       />
     </TabTwoStack.Navigator>
   );
