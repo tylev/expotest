@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "BMTest",
+    "name": "Bitcoin Magazine",
     "slug": "BMTest",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -19,7 +19,9 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+        "bundleIdentifier": "com.btcinc.bmtest",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
